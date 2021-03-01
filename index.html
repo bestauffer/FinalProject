@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>My Beers</title>
+  <!-- <documentation at http://demos.jquerymobile.com/1.4.1/ > -->
+
+  <link href='https://fonts.googleapis.com/css?family=Nova Flat' rel='stylesheet'>
+
+  <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+  <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  <script src="index.js"></script>
+  <link rel="stylesheet" type="text/css" href="index.css">
+
+</head>
+
+<body>
+
+  <!-- Start of  page ------------------------------------------------------------------>
+  <div data-role="page" id="home">
+
+    <!--   page header -->
+    <div data-role="header" data-theme='a'>
+      <h1>My Movies</h1>
+    </div>
+
+    <!--   page content -->
+    <div data-role="content" data-theme='b'>
+      <div class="newFont">
+        <h2> My Collection of Movies</h2>
+      </div>
+    </div>
+
+    <!--  page footer -->
+    <div data-role="footer" data-theme='b'>
+      <h1>Copyrigtht 2020 by Kurt Friedrich</h1>
+    </div>
+  </div>
+  <!-- End of  page ------------------------------------------------------------------>
+
+
+
+
+
+  <div data-role="page" id="Load">
+    <!--  page header -->
+    <div data-role="header" data-theme='a'>
+      <h1>Add a Movie</h1>
+
+    </div>
+    <!-- page content -->
+    <div data-role="content" data-theme='c'>
+      <h2>Enter a new Movie</h2>
+      Enter movie name <br />
+      <input type="text" value="" id="title" />
+    </div>
+
+    <!--   page footer -->
+    <div data-role="footer" data-theme='b'>
+      <h1>Copyrigtht 2020 by Kurt Friedrich</h1>
+    </div>
+  </div>
+  <!-- End of  page ------------------------------------------------------------------>
+
+
+
+  <div data-role="page" id="ListAll">
+    <!--   page header -->
+    <div data-role="header" data-theme='a'>
+      <h1>My Movie List</h1>
+
+    </div>
+    <!--   page content -->
+    <div data-role="content" data-theme='e'>
+      <p> Here are my Movies</p>
+      <div id="divMovieList"></div>
+    </div>
+
+
+    <!--   page footer -->
+    <div data-role="footer" data-theme='b'>
+      <h1>Copyrigtht 2020 by Kurt Friedrich</h1>
+    </div>
+  </div>
+  </div>
+  <!-- End of  page ------------------------------------------------------------------>
+
+
+
+</body>
+
+</html>
