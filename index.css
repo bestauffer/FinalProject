@@ -2,11 +2,35 @@ h1 {
   color: rgb(12, 145, 78);
 }
 
-.newFont
-{
-  
+li {
+  color: rgb(12, 145, 78);
+  font-size:      25px;
+  font-weight:    bold;
+}
+
+.myHeader {
+  text-align: center;
+  font-size:      30px;
+  font-weight:    bold;
+  color:  rgb(106, 221, 163);
+}
+
+.newFont {
+  text-align: center;
   font-family: 'Nova Flat';font-size: 22px;
   font-size:      40px;
   font-weight:    bold;
   color:  rgb(24, 211, 117);
+}
+
+.center {
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 25%;
+}
+
+#nav_bar ul li a.active-page
+{
+  background-color:rgb(106, 221, 163);
 }

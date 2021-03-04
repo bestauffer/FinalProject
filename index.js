@@ -1,24 +1,13 @@
 // start by creating data so we don't have to type it in each time
-let movieArray = [];
-let selectedGenre = "not selected";
+let beerArray = [];
 
-document.addEventListener("DOMContentLoaded", function () {
+// define a constructor to create movie objects
+let beerObject = function (pName) {
+    this.ID;
+    this.Name = pName;
+    this.Location;
+    this.Price;
+    this.Description;  
+    this.rating;    
+}
 
-// add button events ************************************************************************
-  
-// end of add button events ************************************************************************
-
-  
-  
-// page before show code *************************************************************************
- 
-// end of page before show code *************************************************************************
-
-});  
-// end of wait until document has loaded event  *************************************************************************
-
-function createList()
-{
-   
-};
-  
