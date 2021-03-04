@@ -19,17 +19,16 @@
 <body>
 
   <!-- Start of Home page ------------------------------------------------------------------>
-  <div data-role="page" id="home">
+  <div data-role="page" id="Home">
 
     <!--   page header -->
     <div data-role="header" data-theme='a'>
       <h1>My Beers</h1>
       <div data-role="navbar" data-theme='b' id="nav_bar">
         <ul>
-        <li><a href="#home" class='active-page'>Home Page</a></li>
-        <li><a href="#Load">Add Movie</a></li>
-        <li><a href="#ListAll">List All Movies</a></li>
-        <li><a href="#ListSome">List Movies by Genre</a></li>
+        <li><a href="#Home" class='active-page'>Home Page</a></li>
+        <li><a href="#Load">Add Beer</a></li>
+        
         </ul>
       </div><!-- /navbar -->
       <div class="myHeader">Your site to organize your favorite movies.</div>
@@ -50,20 +49,15 @@
   </div>
   <!-- End of  page ------------------------------------------------------------------>
 
-
-
-
-
   <div data-role="page" id="Load">
     <!--  page header -->
     <div data-role="header" data-theme='a'>
       <h1>Add a Movie</h1>
       <div data-role="navbar" data-theme='b' id="nav_bar">
         <ul>
-          <li><a href="#home">Home Page</a></li>
-          <li><a href="#Load" class='active-page'>Add Movie</a></li>
-          <li><a href="#ListAll">List All Movies</a></li>
-          <li><a href="#ListSome">List Movies by Genre</a></li>
+          <li><a href="#Home">Home Page</a></li>
+          <li><a href="#Load" class='active-page'>Add Beer</a></li>
+          
         </ul>
       </div><!-- /navbar -->
       <div class="myHeader">Your site to organize your favorite movies.</div>
@@ -75,15 +69,23 @@
 
     <!-- page content -->
   
-    <div data-role="name" data-theme='c'>
+    <div data-role="content" data-theme='c'>
       <h2>Enter a new Movie</h2>
       Enter movie name <br />
-      <input type="text" value="" id="title" />
-      
-    
-    
-      <input type="button" value="Click To Add Movie" id="buttonAdd" data-inline="true" />
-      <input type="button" value="Clear Data" id="buttonClear" data-inline="true" />
+      <input type="text" value="" id="name" />     
+      <input type="button" value="Click To Add Beer" id="buttonAdd" data-inline="true" />
+      <br>
+      <ul>
+        <li><a href="#PricesLocations" beerID ="0">Bud Light</a></li>
+        <li><a href="#PricesLocations" beerID ="1">Rainier</a></li>
+        <li><a href="#PricesLocations" beerID ="2">Irish Death</a></li>
+
+
+      </ul>
+
+
+
+
     </div>
 
        
