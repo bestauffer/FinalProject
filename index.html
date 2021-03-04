@@ -18,7 +18,6 @@
 
 <body>
 
-  <!-- Start of Home page ------------------------------------------------------------------>
    <!-- Start of Home page ------------------------------------------------------------------>
    <div data-role="page" id="Home">
 
@@ -48,7 +47,6 @@
     </div>
   </div>
   <!-- End of Home  page ------------------------------------------------------------------>
-  <!-- End of  page ------------------------------------------------------------------>
 
 
    <!-- Start of Beer List page ------------------------------------------------------------------>
@@ -67,17 +65,24 @@
       <img class="center" id="image1" src="./images/movieReels.jpg" alt="picture of movie reeels" class="center">
     </div>
 
-
-
-
     <!-- page content -->
   
     <div data-role="content" data-theme='c'>
-      <h2>Enter a new Movie</h2>
-      Enter movie name <br />
-      <input type="text" value="" id="name" />     
+      <form>
+      <h2>Enter a new Beer</h2>
+      Enter beer name<br />
+      <input type="text" value="" id="name" />  
+      Where can you find it?<br />
+      <input type="text" value="" id="location" >
+      How much does it cost?<br />   
+      <input type="text" value="" id="price" >
+      Describe the beer:
+      <input type="text" value="" id="description" >
+      Rate it (1-5):
+      <input type="text" value="" id="rating" >
       <input type="button" value="Click To Add Beer" id="buttonAdd" data-inline="true" />
       <br>
+      </form>
       
       <ul>
         <li><a href="#PricesLocations" onclick = "Data(0)">Bud Light</a></li>
@@ -86,14 +91,15 @@
       </ul>
     </div>
 
-       
     
     <!--   page footer -->
     <div data-role="footer" data-theme='b'>
       <h1>Copyright 2021 by Blake Stauffer & Lori Latchinian</h1>
     </div>
   </div>
-  <!-- End of  page ------------------------------------------------------------------>
+  <!-- End of Beer List page ------------------------------------------------------------------>
+
+
 
 <!-- Start of Prices & Locations page ------------------------------------------------------------------>
 <div data-role="page" id="PricesLocations">
@@ -112,8 +118,18 @@
     <div class="myHeader">Your site to organize your favorite beers.</div>
     <img class="center" id="image1" src="./images/movieReels.jpg" alt="picture of movie reeels" class="center">
   </div>
+
   <!--   page content -->
   <div data-role="content" data-theme='e'>
+    <form>
+      <h2>Add a new location!</h2>
+      Location:<br />
+      <input type="text" value="" id="location" />  
+      Price:<br />
+      <input type="text" value="" id="price" >
+      <input type="button" value="Add" id="buttonAdd" data-inline="true" />
+      <br>
+    </form>
     
     <p id="Description"></p>
     <p id="Ratings"></p>
@@ -152,6 +168,17 @@
 
   <!--  content -->
   <div data-role="content" data-theme='c'>
+
+    <form>
+      <h2>Add a rating from 1-5!</h2>
+      Rating:<br />
+      <input type="text" value="" id="rating" />  
+      Any comments?<br />
+      <input type="text" value="" id="description" >
+      <input type="button" value="Add" id="buttonAdd" data-inline="true" />
+      <br>
+    </form>
+
     <p> Here are the details</p>
 
     <p id="Description"></p>
@@ -159,8 +186,6 @@
     
     
   </div>
-
-  
 
   <!--    footer -->
   <div data-role="footer" data-theme='b'>
