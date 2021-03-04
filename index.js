@@ -11,4 +11,7 @@ let beerObject = function (pName) {
     this.rating;    
 }
 
-let sessionID = $("#link").data("beerID")
+let sessionID;
+function Data(ID){
+    sessionID = ID;
+}
