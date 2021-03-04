@@ -19,8 +19,7 @@ function Data(ID){
     document.getElementById("Description").innerHTML = beerArray[ID].Description;
     document.getElementById("Ratings").innerHTML = beerArray[ID].Rating;
     document.getElementById("Name").innerHTML = beerArray[ID].Name;
-
-
+    document.getElementById("OtherName").innerHTML = beerArray[ID].Name;
 }
 
 beerArray.push(new BeerObject("Bud Light"));
