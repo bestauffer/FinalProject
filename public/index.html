@@ -13,13 +13,12 @@
   <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
   <script src="javascripts/index.js"></script>
   <link rel="stylesheet" type="text/css" href="stylesheets/index.css">
-  <link rel="icon" type="image/jpg" href="images/beerFavicon.jpg">
+
 </head>
 
 <body>
 
   <!-- Start of Home page ------------------------------------------------------------------>
-   <!-- Start of Home page ------------------------------------------------------------------>
    <div data-role="page" id="Home">
 
     <!--   page header -->
@@ -38,7 +37,7 @@
       <div class="newFont">
         <h2> My Collection of Beers</h2>
         <div class="myHeader">Your site to organize your favorite beers</div>
-        <img class="center" id="image1" src="./images/beerFoam.jpg" alt="picture of beer" class="center" >
+        <img class="center" id="image1" src="./images/beerFoam.jpg" alt="picture of movie reeels" class="center" >
       </div>
     </div>
 
@@ -48,7 +47,6 @@
     </div>
   </div>
   <!-- End of Home  page ------------------------------------------------------------------>
-  <!-- End of  page ------------------------------------------------------------------>
 
 
    <!-- Start of Beer List page ------------------------------------------------------------------>
@@ -74,26 +72,23 @@
   
     <div data-role="content" data-theme='c'>
       <form>
-        <h2>Enter a New Beer</h2>
+        <h2>Enter a new Beer</h2>
         Enter beer name<br />
-        <input type="text" value="" id="name" />  
+        <input type="text" value="" id="newBeerName" />  
         Where can you find it?<br />
-        <input type="text" value="" id="location" >
+        <input type="text" value="" id="newBeerLocation" >
         How much does it cost?<br />   
-        <input type="text" value="" id="price" >
+        <input type="text" value="" id="newBeerPrice" >
         Describe the beer:
-        <input type="text" value="" id="description" >
+        <input type="text" value="" id="newBeerDescription" >
         Rate it (1-5):
-        <input type="text" value="" id="rating" >
-        <input type="button" value="Click to Add Beer" id="buttonAdd" data-inline="true" />
+        <input type="text" value="" id="newBeerRating" >
+        <input type="button" value="Click To Add Beer" id="buttonAddBeer" data-inline="true" />
         <br>
-        </form>
+      </form>
       
-      <ul>
-        <li><a href="#PricesLocations" onclick = "Data(0)">Bud Light</a></li>
-        <li><a href="#PricesLocations" onclick = "Data(1)">Rainier</a></li>
-        <li><a href="#PricesLocations" onclick = "Data(2)">Irish Death</a></li>
-      </ul>
+      <div id="divBeerList"></div>
+
     </div>
 
        
@@ -103,7 +98,7 @@
       <h1>Copyright 2021 by Blake Stauffer & Lori Latchinian</h1>
     </div>
   </div>
-  <!-- End of  page ------------------------------------------------------------------>
+  <!-- End of Beer List page ------------------------------------------------------------------>
 
 <!-- Start of Prices & Locations page ------------------------------------------------------------------>
 <div data-role="page" id="PricesLocations">
@@ -128,14 +123,15 @@
     <form>
       <h2>Add a new location!</h2>
       Location:<br />
-      <input type="text" value="" id="location" />  
+      <input type="text" value="" id="addLocation" />  
       Price:<br />
-      <input type="text" value="" id="price" >
-      <input type="button" value="Add" id="buttonAdd" data-inline="true" />
+      <input type="text" value="" id="addPrice" >
+      <input type="button" value="Add" id="buttonAddLocationsPrices" data-inline="true" />
       <br>
     </form>
 
     <h3>Location:</h3>
+    <div id="divLocationList"></div>
     <div id="Location"></div>
   </br>
   <h3>Price ($):</h3>
@@ -175,7 +171,19 @@
 
   <!--  content -->
   <div data-role="content" data-theme='c'>
+
+    <form>
+      <h2>Add a new rating from 1-5!</h2>
+      Rating:<br />
+      <input type="text" value="" id="addRating" />  
+      Any comments?<br />
+      <input type="text" value="" id="addDescription" >
+      <input type="button" value="Add" id="buttonAddDescriptionsRatings" data-inline="true" />
+      <br>
+    </form>
+
     <h3>Description:</h3>
+    <div id="divReviewList"></div>
     <div id="Description"></div>
     </br>
     <h3>Ratings:</h3>
@@ -193,7 +201,7 @@
   <!-- End of Descriptions & Ratings page ------------------------------------------------------------------>
 
 
-  <p id="IDparmHere" hidden>change1</p>  <!--hidden, a place to stash the user ID -->
+  <p id="IDparmHere" hidden>starter</p>  <!--hidden, a place to stash the user ID -->
 </body>
 
 </html>
