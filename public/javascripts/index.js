@@ -36,10 +36,13 @@ document.addEventListener("DOMContentLoaded", function () { //Put button/event h
 
     // need one for our details page to fill in the info based on the passed in ID
     $(document).on("pagebeforeshow", "#PricesLocations", function (event) {   // have to use jQuery 
+        FillArrayFromServer();
         createPricesLocationsList();
+        
     });
 
     $(document).on("pagebeforeshow", "#DescriptionsRatings", function (event) {   // have to use jQuery 
+        FillArrayFromServer();
         createDescriptionsRatingsList();
     });
  
@@ -142,7 +145,7 @@ function createBeerList() {
 
 function createPricesLocationsList(){
     let localID = document.getElementById("IDparmHere").innerHTML;
-    FillArrayFromServer();
+    
     let currentBeer = beerArray[localID];
 
     // clear prior data
@@ -165,7 +168,7 @@ function createPricesLocationsList(){
 
 function createDescriptionsRatingsList(){
     let localID = document.getElementById("IDparmHere").innerHTML;
-    FillArrayFromServer();
+    
     let currentBeer = beerArray[localID];
 
     // clear prior data
