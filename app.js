@@ -16,28 +16,21 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static('public'))
 
 // start by creating data so we don't have to type it in each time
-let serverMovieArray = [];
+let serverBeerArray = [];
 
 // define a constructor to create movie objects
-let MovieObject = function (pTitle, pYear, pGenre, pMan, pWoman, pURL) {
-    this.ID = Math.random().toString(16).slice(5)  // tiny chance could get duplicates!
-    this.Title = pTitle;
-    this.Year = pYear;
-    this.Genre = pGenre;  // action  comedy  drama  horrow scifi  musical  western
-    this.Man = pMan;
-    this.Woman = pWoman;
-    this.URL = pURL;
+let BeerObject = function (pName, pLocation, pPrice, pDescription, pRating) {
+    this.ID = serverBeerArray.length;
+    this.Name = pName;
+    this.Location = [pLocation];
+    this.Price = [pPrice];
+    this.Description = [pDescription];  
+    this.Rating = [pRating];    
 }
 
-
-serverMovieArray.push(new MovieObject("MoonstruckXXXX", 1981, "Drama", "Nicholas Cage", "Cher", "https://www.youtube.com/watch?v=M01_2CKL6PU"));
-serverMovieArray.push(new MovieObject("Wild At Heart", 1982, "Drama", "Nicholas Cage", "Laura VanDern", "https://www.youtube.com/watch?v=7uRJartX79Q"));
-serverMovieArray.push(new MovieObject("Raising Arizona", 1983, "Comedy", "Nicholas Cage", "Holly Hunter", "https://www.youtube.com/watch?v=NoXJKArYi1g"));
-serverMovieArray.push(new MovieObject("USS Indianapolis: Men of Courage", 2016, "Drama", "Nicholas Cage", "Emily Tennant", "https://youtu.be/ZDPE-NronKk"));
-serverMovieArray.push(new MovieObject("Venusstruck", 1983, "Drama", "Nicholas Cage", "Cher", "https://www.youtube.com/watch?v=M01_2CKL6PU"));
-serverMovieArray.push(new MovieObject("Marsstruck", 1984, "Comedy", "Nicholas Cage", "Cher", "https://www.youtube.com/watch?v=M01_2CKL6PU"));
-serverMovieArray.push(new MovieObject("Jupiterstruck", 1985, "Drama", "Nicholas Cage", "Cher", "https://www.youtube.com/watch?v=M01_2CKL6PU"));
-serverMovieArray.push(new MovieObject("Saturnstruck", 1986, "Comedy", "Nicholas Cage", "Cher", "https://www.youtube.com/watch?v=M01_2CKL6PU"));
+serverBeerArray.push(new BeerObject("Bud Light", "Albertsons", 10, "Bud Light is very refreshing on a hot day.", 3));
+serverBeerArray.push(new BeerObject("Rainier", "Safeway", 8, "Rainier is a classic beer that tastes amazing any day.", 4));
+serverBeerArray.push(new BeerObject("Irish Death", "Norm's", 12, "Irish Death has a chocolate flavor that is to die for!", 5));
 
 
 
@@ -52,40 +45,40 @@ app.get('/', function(req, res) {
 
 
 /* GET movieList. */
-app.get('/movieList', function(req, res) {
-    res.json(serverMovieArray);
+app.get('/beerList', function(req, res) {
+    res.json(serverBeerArray);
 });
 
 
 
 /* POST to addMovie */
-app.post('/addMovie', function(req, res) {
+app.post('/addBeer', function(req, res) {
     console.log(req.body);
-    serverMovieArray.push(req.body);
+    serverBeerArray.push(req.body);
     // set the res(ponse) object's status propery to a 200 code, which means success
     res.status(200).send(JSON.stringify('success'));
   });
 
 
-app.delete('/deleteMovie/:id', (req, res) => {
+app.delete('/deleteBeer/:id', (req, res) => {
     let id = req.params.id;
-    for (var i = 0; i < serverMovieArray.length; i++) {
-        if (serverMovieArray[i].ID === id) {
-            serverMovieArray.splice(i, 1);  // remove 1 element at loc i
+    for (var i = 0; i < serverBeerArray.length; i++) {
+        if (serverBeerArray[i].ID === id) {
+            serverBeerArray.splice(i, 1);  // remove 1 element at loc i
             res.send('success');
         }
     }
     res.status(404);  // if not found
 });
 
-app.put('/modifyMovie/:id', (req, res) => {
+app.put('/modifyBeer/:id', (req, res) => {
     let id = req.params.id;
-    let movieObject = req.body;
+    let beerObject = req.body;
     console.log(id);
-    console.log(movieObject);
-    for (var i = 0; i < serverMovieArray.length; i++) {
-        if (serverMovieArray[i].ID == id) {
-            serverMovieArray[i] = movieObject;  // remove 1 element at loc i
+    console.log(beerObject);
+    for (var i = 0; i < serverBeerArray.length; i++) {
+        if (serverBeerArray[i].ID == id) {
+            serverBeerArray[i] = beerObject;  // remove 1 element at loc i
             res.send('success');
         }
     }
