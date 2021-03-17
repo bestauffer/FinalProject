@@ -44,14 +44,14 @@ app.get('/', function(req, res) {
 });
 
 
-/* GET movieList. */
+/* GET BeerList. */
 app.get('/beerList', function(req, res) {
     res.json(serverBeerArray);
 });
 
 
 
-/* POST to addMovie */
+/* POST to addBeer */
 app.post('/addBeer', function(req, res) {
     console.log(req.body);
     serverBeerArray.push(req.body);
