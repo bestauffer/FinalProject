@@ -255,7 +255,7 @@ function modifyBeer(newBeer){
     // a put requires both a URL passed value and an object in the body
     // that way you could tell the server, find the object with this ID  passed in the URL
     // and replace it with an object that is in the body that MIGHT have an updated and different ID.
-    const request = new Request('/modifyBeer/' + newMovie.ID, {
+    const request = new Request('/modifyBeer/' + newBeer.ID, {
         method: 'PUT',
         body: JSON.stringify(newBeer),
         headers: new Headers({
