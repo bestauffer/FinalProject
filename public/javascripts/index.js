@@ -32,6 +32,7 @@ document.addEventListener("DOMContentLoaded", function () { //Put button/event h
 
     $(document).on("pagebeforeshow", "#BeerList", function (event) {   // have to use jQuery 
         FillArrayFromServer();
+        createBeerList();
     });
 
     // need one for our details page to fill in the info based on the passed in ID
@@ -202,7 +203,7 @@ function FillArrayFromServer(){
     console.log(serverData);
     beerArray.length = 0;  // clear array
     beerArray = serverData;   // use our server json data which matches our objects in the array perfectly
-    createBeerList();  // placing this here will make it wait for data from server to be complete before re-doing the list
+    
     })
     .catch(function (err) {
      console.log(err);
