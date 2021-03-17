@@ -76,7 +76,7 @@ document.getElementById("buttonAddLocationsPrices").addEventListener("click", fu
     let localID = document.getElementById("IDparmHere").innerHTML;
     beerArray[localID].Location.push(document.getElementById("addLocation").value);
     beerArray[localID].Price.push(document.getElementById("addPrice").value); //Adds the new location/price values
-
+    modifyBeer(beerArray[localID]);
     createBeerList();
 
     document.getElementById("addLocation").value = "";
@@ -90,7 +90,7 @@ document.getElementById("buttonAddDescriptionsRatings").addEventListener("click"
     let localID = document.getElementById("IDparmHere").innerHTML;
     beerArray[localID].Description.push(document.getElementById("addDescription").value);
     beerArray[localID].Rating.push(document.getElementById("addRating").value); //Adds the new description/rating values
-
+    modifyBeer(beerArray[localID]);
     createDescriptionsRatingsList();
 
     document.getElementById("addDescription").value = "";
@@ -237,9 +237,45 @@ function addNewBeer(newBeer){
             console.log(theResonsePromiseJson.toString()), 
             document.location.href = "#BeerList" 
             })
-      // the client console log will write out the message I added to the Repsonse on the server
+      // the client console log will write out the message I added to the Response on the server
       .catch(function (err) {
           console.log(err);
       });
     FillArrayFromServer();
     }; // end of addNewBeer
+
+
+
+    // using fetch to push an object up to server
+function modifyBeer(newBeer){
+    // movie constructor function gave this a new ID, set it back to what it was
+    newBeer.ID= document.getElementById("IDparmHere").innerHTML;
+    // create fetch request object
+ 
+    // a put requires both a URL passed value and an object in the body
+    // that way you could tell the server, find the object with this ID  passed in the URL
+    // and replace it with an object that is in the body that MIGHT have an updated and different ID.
+    const request = new Request('/modifyBeer/' + newMovie.ID, {
+        method: 'PUT',
+        body: JSON.stringify(newBeer),
+        headers: new Headers({
+            'Content-Type': 'application/json'
+        })
+    });
+        
+    // use that request object we just created for our fetch() call
+    fetch(request)
+    // wait for frist server promise response of "200" success 
+        .then(function (theResponsePromise) {    // the .json sets up 2nd promise
+            return theResponsePromise.json()  })
+        // now wait for the 2nd promise, which is when data has finished being returned to client
+        .then(function (theResonsePromiseJson) { 
+            console.log(theResonsePromiseJson.toString()), 
+            document.location.href = "#" 
+        })
+        // the client console log will write out the message I added to the Repsonse on the server
+        .catch(function (err) {
+            console.log(err);
+    });
+    FillArrayFromServer();
+}; // end of modifyMovie
