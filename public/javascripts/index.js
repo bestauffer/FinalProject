@@ -143,6 +143,7 @@ function createBeerList() {
 
 function createPricesLocationsList(){
     let localID = document.getElementById("IDparmHere").innerHTML;
+    FillArrayFromServer();
     let currentBeer = beerArray[localID];
 
     // clear prior data
@@ -165,6 +166,7 @@ function createPricesLocationsList(){
 
 function createDescriptionsRatingsList(){
     let localID = document.getElementById("IDparmHere").innerHTML;
+    FillArrayFromServer();
     let currentBeer = beerArray[localID];
 
     // clear prior data
