@@ -214,7 +214,7 @@ function addNewBeer(){
         // create request object
         const request = new Request('/addBeer', {
             method: 'POST',
-            body: JSON.stringify(beerArray[beerArray.length-1}),
+            body: JSON.stringify(beerArray[beerArray.length-1]),
             headers: new Headers({
                 'Content-Type': 'application/json'
             })
