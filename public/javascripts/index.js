@@ -77,7 +77,8 @@ document.getElementById("buttonAddLocationsPrices").addEventListener("click", fu
     beerArray[localID].Location.push(document.getElementById("addLocation").value);
     beerArray[localID].Price.push(document.getElementById("addPrice").value); //Adds the new location/price values
     modifyBeer(beerArray[localID]);
-    createBeerList();
+    createPricesLocationsList();  
+    
 
     document.getElementById("addLocation").value = "";
     document.getElementById("addPrice").value = ""; //Wipes the input fields
