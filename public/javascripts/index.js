@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () { //Put button/event h
 // page before show code *************************************************************************
 
     $(document).on("pagebeforeshow", "#BeerList", function (event) {   // have to use jQuery 
-        createBeerList();
+        FillArrayFromServer();
     });
 
     // need one for our details page to fill in the info based on the passed in ID
@@ -57,7 +57,7 @@ document.getElementById("buttonAddBeer").addEventListener("click", function () {
         document.getElementById("newBeerDescription").value,
         document.getElementById("newBeerRating").value)); //Adds new beer object
 
-    createBeerList(); //Recreates the beer list so the new addition is immediately visible
+    addNewBeer(); //Recreates the beer list so the new addition is immediately visible
 
     document.getElementById("newBeerName").value = "";
     document.getElementById("newBeerLocation").value = "";
@@ -74,7 +74,7 @@ document.getElementById("buttonAddLocationsPrices").addEventListener("click", fu
     beerArray[localID].Location.push(document.getElementById("addLocation").value);
     beerArray[localID].Price.push(document.getElementById("addPrice").value); //Adds the new location/price values
 
-    createPricesLocationsList();
+    createBeerList();
 
     document.getElementById("addLocation").value = "";
     document.getElementById("addPrice").value = ""; //Wipes the input fields
@@ -184,3 +184,55 @@ function createDescriptionsRatingsList(){
     }
     divReviewList.appendChild(ul)
 }
+
+
+
+
+function FillArrayFromServer(){
+    // using fetch call to communicate with node server to get all data
+    fetch('/beerList')
+    .then(function (theResonsePromise) {  // wait for reply.  Note this one uses a normal function, not an => function
+        return theResonsePromise.json();
+    })
+    .then(function (serverData) { // now wait for the 2nd promise, which is when data has finished being returned to client
+    console.log(serverData);
+    beerArray.length = 0;  // clear array
+    beerArray = serverData;   // use our server json data which matches our objects in the array perfectly
+    createList();  // placing this here will make it wait for data from server to be complete before re-doing the list
+    })
+    .catch(function (err) {
+     console.log(err);
+    });
+};
+
+// using fetch to push an object up to server
+function addNewBeer(){
+    // the required post body data is our movie object passed into this function
+    
+        // create request object
+        const request = new Request('/addBeer', {
+            method: 'POST',
+            body: JSON.stringify(beerArray[beerArray.length-1}),
+            headers: new Headers({
+                'Content-Type': 'application/json'
+            })
+        });
+        
+      // use that request object we just created for our fetch() call
+      fetch(request)
+      // wait for frist server promise response of "200" success 
+      // (can name these returned promise objects anything you like)
+         .then(function (theResonsePromise) {    // the .json sets up 2nd promise
+          return theResonsePromise.json()  })
+       // now wait for the 2nd promise, which is when data has finished being returned to client
+          .then(function (theResonsePromiseJson) { 
+            console.log(theResonsePromiseJson.toString()), 
+            document.location.href = "#BeerList" 
+            })
+      // the client console log will write out the message I added to the Repsonse on the server
+      .catch(function (err) {
+          console.log(err);
+      });
+    }; // end of addNewMovie
+
+
