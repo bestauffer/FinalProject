@@ -241,6 +241,7 @@ function addNewBeer(newBeer){
       .catch(function (err) {
           console.log(err);
       });
-    }; // end of addNewMovie
+    FillArrayFromServer();
+    }; // end of addNewBeer
 
 
