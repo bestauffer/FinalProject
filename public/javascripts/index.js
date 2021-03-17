@@ -50,14 +50,13 @@ document.addEventListener("DOMContentLoaded", function () { //Put button/event h
 //Button for adding a new beer
 document.getElementById("buttonAddBeer").addEventListener("click", function () {
     //Note: Add a check that makes sure the text boxes were all filled out (and that the rating is 1-5)
-
-    beerArray.push(new BeerObject(document.getElementById("newBeerName").value,
+let newBeer = new BeerObject(document.getElementById("newBeerName").value,
         document.getElementById("newBeerLocation").value,
         document.getElementById("newBeerPrice").value,
         document.getElementById("newBeerDescription").value,
-        document.getElementById("newBeerRating").value)); //Adds new beer object
+        document.getElementById("newBeerRating").value); //Adds new beer object
 
-    addNewBeer(); //Recreates the beer list so the new addition is immediately visible
+    addNewBeer(newBeer); //Recreates the beer list so the new addition is immediately visible
 
     document.getElementById("newBeerName").value = "";
     document.getElementById("newBeerLocation").value = "";
@@ -208,13 +207,13 @@ function FillArrayFromServer(){
 };
 
 // using fetch to push an object up to server
-function addNewBeer(){
+function addNewBeer(newBeer){
     // the required post body data is our movie object passed into this function
     
         // create request object
         const request = new Request('/addBeer', {
             method: 'POST',
-            body: JSON.stringify(beerArray[beerArray.length-1]),
+            body: JSON.stringify(newBeer),
             headers: new Headers({
                 'Content-Type': 'application/json'
             })
