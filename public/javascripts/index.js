@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () { //Put button/event h
 // page before show code *************************************************************************
 
     $(document).on("pagebeforeshow", "#BeerList", function (event) {   // have to use jQuery 
-        FillArrayFromServer();
+        createBeerList();
     });
 
     // need one for our details page to fill in the info based on the passed in ID
@@ -102,7 +102,7 @@ document.getElementById("buttonAddDescriptionsRatings").addEventListener("click"
 
 function createBeerList() {
 // call the node server and it will return an array of beers
-
+ FillArrayFromServer();
 
     // clear prior data
     let divBeerList = document.getElementById("divBeerList");
