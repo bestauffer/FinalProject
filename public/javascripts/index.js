@@ -215,7 +215,7 @@ function FillArrayFromServer(){
 
 // using fetch to push an object up to server
 function addNewBeer(newBeer){
-    // the required post body data is our movie object passed into this function
+    // the required post body data is our beer object passed into this function
     
         // create request object
         const request = new Request('/addBeer', {
