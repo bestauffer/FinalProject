@@ -32,19 +32,19 @@ document.addEventListener("DOMContentLoaded", function () { //Put button/event h
 
     $(document).on("pagebeforeshow", "#BeerList", function (event) {   // have to use jQuery 
         FillArrayFromServer();
-        createBeerList();
+        
     });
 
     // need one for our details page to fill in the info based on the passed in ID
     $(document).on("pagebeforeshow", "#PricesLocations", function (event) {   // have to use jQuery 
         FillArrayFromServer();
-        createPricesLocationsList();
+        
         
     });
 
     $(document).on("pagebeforeshow", "#DescriptionsRatings", function (event) {   // have to use jQuery 
         FillArrayFromServer();
-        createDescriptionsRatingsList();
+        
     });
  
 // end of page before show code *************************************************************************
@@ -203,7 +203,10 @@ function FillArrayFromServer(){
     console.log(serverData);
     beerArray.length = 0;  // clear array
     beerArray = serverData;   // use our server json data which matches our objects in the array perfectly
-    
+    createBeerList();
+    createPricesLocationsList();    
+    createDescriptionsRatingsList();    
+        
     })
     .catch(function (err) {
      console.log(err);
