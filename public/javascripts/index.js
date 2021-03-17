@@ -22,9 +22,9 @@ function Data(ID){
     document.getElementById("OtherName").innerHTML = beerArray[ID].Name;
 }
 
-beerArray.push(new BeerObject("Bud Light", "Albertsons", 10, "Bud Light is very refreshing on a hot day.", 3));
-beerArray.push(new BeerObject("Rainier", "Safeway", 8, "Rainier is a classic beer that tastes amazing any day.", 4));
-beerArray.push(new BeerObject("Irish Death", "Norm's", 12, "Irish Death has a chocolate flavor that is to die for!", 5));
+// beerArray.push(new BeerObject("Bud Light", "Albertsons", 10, "Bud Light is very refreshing on a hot day.", 3));
+// beerArray.push(new BeerObject("Rainier", "Safeway", 8, "Rainier is a classic beer that tastes amazing any day.", 4));
+// beerArray.push(new BeerObject("Irish Death", "Norm's", 12, "Irish Death has a chocolate flavor that is to die for!", 5));
 
 
 document.addEventListener("DOMContentLoaded", function () { //Put button/event handlers in here
