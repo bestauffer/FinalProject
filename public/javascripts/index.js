@@ -138,7 +138,7 @@ function createBeerList() {
         // get our hidden <p> and write THIS ID value there
         document.getElementById("IDparmHere").innerHTML = parm;
         // now jump to our page that will use that one item
-        document.location.href = "#PricesLocations";
+        document.location.href = "index.html#PricesLocations";
         });
     });
 
@@ -235,7 +235,7 @@ function addNewBeer(newBeer){
        // now wait for the 2nd promise, which is when data has finished being returned to client
           .then(function (theResonsePromiseJson) { 
             console.log(theResonsePromiseJson.toString()), 
-            document.location.href = "#BeerList" 
+            document.location.href = "index.html#BeerList" 
             })
       // the client console log will write out the message I added to the Repsonse on the server
       .catch(function (err) {
@@ -243,5 +243,3 @@ function addNewBeer(newBeer){
       });
     FillArrayFromServer();
     }; // end of addNewBeer
-
-
