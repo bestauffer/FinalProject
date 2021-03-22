@@ -306,9 +306,13 @@ function deleteModePricesLocations(){
             let parm = this.getAttribute("data-parm");  // passes in the index number
             beerArray[localID].Location.splice(parm, 1);
             beerArray[localID].Price.splice(parm, 1);
+            modifyBeer(beerArray[localID]);
+            FillArrayFromServer();
             createPricesLocationsList();
+            
         });
     });
+    
 }
 
 function deleteModeDescriptionsRatings(){
@@ -323,7 +327,10 @@ function deleteModeDescriptionsRatings(){
             let parm = this.getAttribute("data-parm");  // passes in the index number
             beerArray[localID].Description.splice(parm, 1);
             beerArray[localID].Rating.splice(parm, 1);
+            modifyBeer(beerArray[localID]);
+            FillArrayFromServer();
             createDescriptionsRatingsList();
+           
         });
     });
 }
