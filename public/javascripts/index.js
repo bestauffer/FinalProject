@@ -135,7 +135,7 @@ document.getElementById("buttonDeleteBeer").addEventListener("click", function (
     let button = document.getElementById("buttonDeleteBeer");
 
     if (button.getAttribute("data-status")=="delFalse"){
-        button.setAttribute("data-status", "delTrue"); //Flips the existing data status
+        button.setAttribute("data-status", "delFalse"); //Flips the existing data status
         button.innerHTML = "Go Back to Selecting a Beer";
         createBeerList("delete");
     }
