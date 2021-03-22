@@ -225,6 +225,7 @@ function createBeerList(pDelString) {
             console.log("Delete portion of createBeerList. About to call deleteBeer");
             // now call the method that deletes the beer
             deleteBeer(parm);
+            createBeerList("");
             });
         });
     }
