@@ -1,16 +1,13 @@
-h1 {
-  color: #d47000;
-}
+
 
 li {
-  color: #d47000;
+  
   font-size:      25px;
   font-weight:    bold;
 }
 
 form{
-  border: 1px solid #e94500;
-  background-color: #ffc75e;
+  
   padding: 10px;
   float: right;
   width: 400px;
@@ -20,7 +17,7 @@ form{
   text-align: center;
   font-size:      30px;
   font-weight:    bold;
-  color:  #ffa540;
+  
   background-color: #2a2a2a;
 }
 
@@ -29,7 +26,6 @@ form{
   font-family: 'Nova Flat';font-size: 22px;
   font-size:      40px;
   font-weight:    bold;
-  color:  #ffae54;
 }
 
 .center {
@@ -38,9 +34,4 @@ form{
   margin-right: auto;
   width: 25%;
   
-}
-
-#nav_bar ul li a.active-page
-{
-  background-color:#ffc585;
 }
