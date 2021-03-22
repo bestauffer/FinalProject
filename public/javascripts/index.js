@@ -307,7 +307,7 @@ function deleteModePricesLocations(){
             beerArray[localID].Location.splice(parm, 1);
             beerArray[localID].Price.splice(parm, 1);
             modifyBeer(beerArray[localID]);
-            FillArrayFromServer();
+            
             createPricesLocationsList();
             
         });
@@ -328,7 +328,7 @@ function deleteModeDescriptionsRatings(){
             beerArray[localID].Description.splice(parm, 1);
             beerArray[localID].Rating.splice(parm, 1);
             modifyBeer(beerArray[localID]);
-            FillArrayFromServer();
+          
             createDescriptionsRatingsList();
            
         });
