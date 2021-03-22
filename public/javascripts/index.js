@@ -430,21 +430,21 @@ function modifyBeer(newBeer){
 
 function deleteBeer(deletedBeerID){
 
-    console.log("in the beginning of deleteBeer. Beer ID: " + deletedBeerID);
+    
 
     fetch('/deleteBeer/' + deletedBeerID, {
         method: 'DELETE'
     })
     .then(function (theResponsePromise) {    // the .json sets up 2nd promise
-        console.log("beer ID " + deletedBeerID + "has been deleted");
-        alert("beer ID " + deletedBeerID + "has been deleted"); 
-        document.location.href = "#"; 
+        
+        alert("beer ID " + deletedBeerID + "has been deleted") 
+        
     })
     // the client console log will write out the message I added to the Repsonse on the server
     .catch(function (err) {
         alert("oops! something went wrong. " + err);
-        console.log(err);
+        
     });
-    console.log("in the end of deleteBeer. Beer ID: " + deletedBeerID);
+    
     FillArrayFromServer();
 }; // end of deleteBeer
