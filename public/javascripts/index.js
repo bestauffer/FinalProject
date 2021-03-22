@@ -135,7 +135,7 @@ document.getElementById("buttonDeleteBeer").addEventListener("click", function (
     let button = document.getElementById("buttonDeleteBeer");
 
     if (button.getAttribute("data-status")=="delFalse"){
-        button.setAttribute("data-status", "delFalse"); //Flips the existing data status
+        button.setAttribute("data-status", "delTrue"); //Flips the existing data status
         button.innerHTML = "Go Back to Selecting a Beer";
         createBeerList("delete");
     }
@@ -438,7 +438,7 @@ function deleteBeer(deletedBeerID){
     .then(function (theResponsePromise) {    // the .json sets up 2nd promise
         
         alert("beer ID " + deletedBeerID + "has been deleted"), 
-        document.location.href = "#" 
+        
     })
     // the client console log will write out the message I added to the Repsonse on the server
     .catch(function (err) {
