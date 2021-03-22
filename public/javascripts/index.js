@@ -197,7 +197,7 @@ function createBeerList(pDelString) {
 
     let ul = document.createElement('ul');
 
-    beerArray.forEach(function (element,) {   // use handy array forEach method
+    beerArray.forEach(function (element) {   // use handy array forEach method
         let li = document.createElement('li');
         // adding a class name to each one as a way of creating a collection
         li.classList.add('oneBeer'); 
