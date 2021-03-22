@@ -255,6 +255,7 @@ function createPricesLocationsList(){
         divLocationList.removeChild(divLocationList.firstChild);
     };
     document.getElementById("buttonDeleteLocationsPrices").setAttribute("data-status", "delFalse");
+    document.getElementById("buttonDeleteLocationsPrices").innerHTML = "Delete a Listing";
 
     let ul = document.createElement('ul');
 
@@ -266,7 +267,7 @@ function createPricesLocationsList(){
         li.innerHTML = currentBeer.Name + " can be found at " + currentBeer.Location[i] + " for $" + currentBeer.Price[i] + ".";
         ul.appendChild(li);
     }
-    divLocationList.appendChild(ul)
+    divLocationList.appendChild(ul);
 }
 
 function createDescriptionsRatingsList(){
@@ -280,6 +281,7 @@ function createDescriptionsRatingsList(){
         divReviewList.removeChild(divReviewList.firstChild);
     };
     document.getElementById("buttonDeleteDescriptionsRatings").setAttribute("data-status", "delFalse");
+    document.getElementById("buttonDeleteDescriptionsRatings").innerHTML = "Delete a Review";
 
     let ul = document.createElement('ul');
 
