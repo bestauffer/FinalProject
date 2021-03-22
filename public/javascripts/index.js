@@ -436,8 +436,8 @@ function deleteBeer(deletedBeerID){
         method: 'DELETE'
     })
     .then(function (theResponsePromise) {    // the .json sets up 2nd promise
-        console.log("beer ID " + deletedBeerID + "has been deleted");
-        alert("beer ID " + deletedBeerID + "has been deleted"); 
+        
+        alert("beer ID " + deletedBeerID + "has been deleted"), 
         document.location.href = "#" 
     })
     // the client console log will write out the message I added to the Repsonse on the server
