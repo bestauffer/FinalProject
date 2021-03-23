@@ -74,11 +74,11 @@ document.getElementById("buttonAddBeer").addEventListener("click", function () {
 
         addNewBeer(newBeer); //Recreates the beer list so the new addition is immediately visible
 
-        newBeerName = "";
-        newBeerLocation = "";
-        newBeerPrice = "";
-        newBeerDescription = "";
-        newBeerRating = ""; //Wipes the input fields
+        document.getElementById("newBeerName").value = "";
+        document.getElementById("newBeerLocation").value = "";
+        document.getElementById("newBeerPrice").value = "";
+        document.getElementById("newBeerDescription").value = "";
+        document.getElementById("newBeerRating").value = ""; //Wipes the input fields
     }
     else{
         alert("Please fill in all fields properly.");
