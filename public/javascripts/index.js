@@ -9,7 +9,7 @@ let BeerObject = function (pName, pLocation, pPrice, pDescription, pRating) {
     this.Price = [pPrice];
     this.Description = [pDescription];  
     this.Rating = [pRating];    
-}
+};
 
 let sessionID;
 function Data(ID){
@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () { //Put button/event h
 
     $(document).on("pagebeforeshow", "#BeerList", function (event) {   // have to use jQuery 
         FillArrayFromServer();
-        createBeerList("");
+        createBeerList();
     });
 
     // need one for our details page to fill in the info based on the passed in ID
@@ -131,21 +131,6 @@ document.getElementById("buttonAddDescriptionsRatings").addEventListener("click"
     }
 });
 
-document.getElementById("buttonDeleteBeer").addEventListener("click", function () {
-    let button = document.getElementById("buttonDeleteBeer");
-
-    if (button.getAttribute("data-status")=="delFalse"){
-        button.setAttribute("data-status", "delTrue"); //Flips the existing data status
-        button.innerHTML = "Go Back to Selecting a Beer";
-        createBeerList("delete");
-    }
-    else if(button.getAttribute("data-status")=="delTrue"){
-        button.setAttribute("data-status", "delFalse"); //Flips the existing data status
-        button.innerHTML = "Delete a Beer";
-        createBeerList("");
-    }
-});
-
 document.getElementById("buttonDeleteLocationsPrices").addEventListener("click", function () {
     let button = document.getElementById("buttonDeleteLocationsPrices");
 
@@ -188,7 +173,7 @@ document.getElementById("buttonDeleteDescriptionsRatings").addEventListener("cli
 
 
 
-function createBeerList(pDelString) {
+function createBeerList() {
     // clear prior data
     let divBeerList = document.getElementById("divBeerList");
     while (divBeerList.firstChild) {    // remove any old data so don't get duplicates
@@ -204,45 +189,37 @@ function createBeerList(pDelString) {
         // use the html5 "data-parm" to encode the ID of this particular data object
         // that we are building an li from
         li.setAttribute("data-parm", element.ID);
-        li.innerHTML = element.ID + ":  " + element.Name;
+        li.innerHTML = element.Name;
         ul.appendChild(li);
     });
-    divBeerList.appendChild(ul)
+    divBeerList.appendChild(ul);
 
-    // now we have the HTML done to display our list, 
-    // next we make them active buttons
-    // set up an event for each new li item, 
     let liArray = document.getElementsByClassName("oneBeer");
-    if(pDelString === "delete"){ 
-        Array.from(liArray).forEach(function (element) {
-            element.setAttribute("style", "color:red;");
-            element.addEventListener('click', function () {
-            // get that data-parm we added for THIS particular li as we loop thru them
-            let parm = this.getAttribute("data-parm");  // passing in the record.Id
-            // get our hidden <p> and write THIS ID value there
-            document.getElementById("IDparmHere").innerHTML = parm;
-
-            console.log("Delete portion of createBeerList. About to call deleteBeer");
-            // now call the method that deletes the beer
-            deleteBeer(parm);
-            createBeerList("");
-            });
+    Array.from(liArray).forEach(function (element) {
+        element.addEventListener('click', function () {
+        // get that data-parm we added for THIS particular li as we loop thru them
+        let parm = this.getAttribute("data-parm");  // passing in the record.Id
+        // get our hidden <p> and write THIS ID value there
+        document.getElementById("IDparmHere").innerHTML = parm;
+        // now jump to our page that will use that one item
+        document.location.href = "#PricesLocations";
         });
-    }
-    else{
-        Array.from(liArray).forEach(function (element) {
-            element.addEventListener('click', function () {
-            // get that data-parm we added for THIS particular li as we loop thru them
-            let parm = this.getAttribute("data-parm");  // passing in the record.Id
-            // get our hidden <p> and write THIS ID value there
-            document.getElementById("IDparmHere").innerHTML = parm;
-            // now jump to our page that will use that one item
-            document.location.href = "#PricesLocations";
-            });
-            document.getElementById("buttonDeleteBeer").setAttribute("data-status", "delFalse");
-        });
-    }
+    });
 
+}
+
+function makeBeerListSelectable(){
+    let liArray = document.getElementsByClassName("oneBeer");
+    Array.from(liArray).forEach(function (element) {
+        element.addEventListener('click', function () {
+        // get that data-parm we added for THIS particular li as we loop thru them
+        let parm = this.getAttribute("data-parm");  // passing in the record.Id
+        // get our hidden <p> and write THIS ID value there
+        document.getElementById("IDparmHere").innerHTML = parm;
+        // now jump to our page that will use that one item
+        document.location.href = "#PricesLocations";
+        });
+    });
 }
 
 function createPricesLocationsList(){
@@ -254,7 +231,7 @@ function createPricesLocationsList(){
     let divLocationList = document.getElementById("divLocationList");
     while (divLocationList.firstChild) {    // remove any old data so don't get duplicates
         divLocationList.removeChild(divLocationList.firstChild);
-    };
+    }
     document.getElementById("buttonDeleteLocationsPrices").setAttribute("data-status", "delFalse");
     document.getElementById("buttonDeleteLocationsPrices").innerHTML = "Delete a Listing";
 
@@ -294,7 +271,7 @@ function createDescriptionsRatingsList(){
         li.innerHTML = "\"" + currentBeer.Description[i] + "\" - " + currentBeer.Rating[i] + "/5";
         ul.appendChild(li);
     }
-    divReviewList.appendChild(ul)
+    divReviewList.appendChild(ul);
 }
 
 function deleteModePricesLocations(){
@@ -351,7 +328,7 @@ function FillArrayFromServer(){
     console.log(serverData);
     beerArray.length = 0;  // clear array
     beerArray = serverData;   // use our server json data which matches our objects in the array perfectly
-    createBeerList("");
+    createBeerList();
      
     
         
@@ -359,7 +336,7 @@ function FillArrayFromServer(){
     .catch(function (err) {
      console.log(err);
     });
-};
+}
 
 // using fetch to push an object up to server
 function addNewBeer(newBeer){
@@ -419,32 +396,11 @@ function modifyBeer(newBeer){
         // now wait for the 2nd promise, which is when data has finished being returned to client
         .then(function (theResonsePromiseJson) { 
             console.log(theResonsePromiseJson.toString()), 
-            document.location.href = "#" 
+            document.location.href = "#" ;
         })
         // the client console log will write out the message I added to the Repsonse on the server
         .catch(function (err) {
             console.log(err);
     });
     FillArrayFromServer();
-}; // end of modifyBeer
-
-function deleteBeer(deletedBeerID){
-
-    console.log("in the beginning of deleteBeer. Beer ID: " + deletedBeerID);
-
-    fetch('/deleteBeer/' + deletedBeerID, {
-        method: 'DELETE'
-    })
-    .then(function (theResponsePromise) {    // the .json sets up 2nd promise
-        console.log("beer ID " + deletedBeerID + "has been deleted");
-        alert("beer ID " + deletedBeerID + "has been deleted"); 
-        document.location.href = "#" 
-    })
-    // the client console log will write out the message I added to the Repsonse on the server
-    .catch(function (err) {
-        alert("oops! something went wrong. " + err);
-        console.log(err);
-    });
-    console.log("in the end of deleteBeer. Beer ID: " + deletedBeerID);
-    FillArrayFromServer();
-}; // end of deleteBeer
+} // end of modifyBeer
