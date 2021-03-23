@@ -360,7 +360,7 @@ function addNewBeer(newBeer){
        // now wait for the 2nd promise, which is when data has finished being returned to client
           .then(function (theResonsePromiseJson) { 
             console.log(theResonsePromiseJson.toString()), 
-            document.location.href = "#BeerList" 
+            document.location.href = "#"; 
             })
       // the client console log will write out the message I added to the Response on the server
       .catch(function (err) {
