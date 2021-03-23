@@ -59,7 +59,7 @@ app.post('/addBeer', function(req, res) {
     res.status(200).send(JSON.stringify('success'));
   });
 
-
+/*
 app.delete('/deleteBeer/:id', (req, res) => {
     let id = req.params.id;
     for (var i = 0; i < serverBeerArray.length; i++) {
@@ -70,7 +70,7 @@ app.delete('/deleteBeer/:id', (req, res) => {
     }
     res.status(404);  // if not found
 });
-
+*/
 app.put('/modifyBeer/:id', (req, res) => {
     let id = req.params.id;
     let beerObject = req.body;
