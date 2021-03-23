@@ -336,7 +336,7 @@ function FillArrayFromServer(){
     .catch(function (err) {
      console.log(err);
     });
-}
+};
 
 // using fetch to push an object up to server
 function addNewBeer(newBeer){
@@ -403,4 +403,4 @@ function modifyBeer(newBeer){
             console.log(err);
     });
     FillArrayFromServer();
-} // end of modifyBeer
+}; // end of modifyBeer
