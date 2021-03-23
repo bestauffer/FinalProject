@@ -169,7 +169,7 @@ document.getElementById("buttonDeleteDescriptionsRatings").addEventListener("cli
 
 //button events end *********************************************************************************
 
-}); //DOMContentLoaded event end ********************************************************************
+}); //DOMContentLoaded event end *******************************************************************
 
 
 
