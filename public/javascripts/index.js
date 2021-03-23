@@ -64,7 +64,7 @@ document.getElementById("buttonAddBeer").addEventListener("click", function () {
      && (newBeerLocation != null)
      && (!isNaN(newBeerPrice) && newBeerPrice !=null)
      && (newBeerDescription != null)
-     && (!isNaN(newBeerRating) && (newBeerRating > 0) && (newBeerRating < 6))){
+     && (!isNaN(newBeerRating) && (newBeerRating > 0) && (newBeerRating <= 5))){
 
         let newBeer = new BeerObject(newBeerName,
             newBeerLocation,
@@ -116,7 +116,7 @@ document.getElementById("buttonAddDescriptionsRatings").addEventListener("click"
     let localID = document.getElementById("IDparmHere").innerHTML;
 
     if((newDescription != "")
-     && (!isNaN(newRating) && (newRating > 0) && (newRating < 6))){
+     && (!isNaN(newRating) && (newRating > 0) && (newRating <= 5))){
 
         beerArray[localID].Description.push(newDescription);
         beerArray[localID].Rating.push(newRating); //Adds the new description/rating values
