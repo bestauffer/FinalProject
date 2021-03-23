@@ -8,7 +8,7 @@
 
   <link href='https://fonts.googleapis.com/css?family=Nova Flat' rel='stylesheet'>
 
-  <link rel="stylesheet" href="stylesheets/themes/myBeerTheme.min.css" />
+  <link rel="stylesheet" href="stylesheets/themes/beerTheme.min.css" />
   <link rel="stylesheet" href="stylesheets/themes/jquery.mobile.icons.min.css" />  
   <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
   <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -47,7 +47,7 @@
     </div>
 
     <!--  page footer -->
-    <div data-role="footer" data-theme='b'>
+    <div data-role="footer" data-theme='a'>
       <h1>Copyright 2021 by Blake Stauffer & Lori Latchinian</h1>
     </div>
   </div>
@@ -57,9 +57,9 @@
    <!-- Start of Beer List page ------------------------------------------------------------------>
   <div data-role="page" id="BeerList">
     <!--  page header -->
-    <div data-role="header" data-theme='a'>
+    <div data-role="header" data-theme='b'>
       <h1>Add a Beer</h1>
-      <div data-role="navbar" data-theme='b' id="nav_bar">
+      <div data-role="navbar" data-theme='a' id="nav_bar">
         <ul>
           <li><a href="/">Home Page</a></li>
           <li><a href="#" class='active-page'>Add Beer</a></li>
@@ -75,14 +75,14 @@
 
     <!-- page content -->
   
-    <div data-role="content" data-theme='c'>
+    <div data-role="content" data-theme='a'>
       <form>
         <h2>Enter a new Beer</h2>
         Enter beer name<br />
         <input type="text" value="" id="newBeerName" />  
         Where can you find it?<br />
         <input type="text" value="" id="newBeerLocation" >
-        How much does it cost?<br />   
+        How much does it cost? ($)<br />   
         <input type="text" value="" id="newBeerPrice" >
         Describe the beer:
         <input type="text" value="" id="newBeerDescription" >
@@ -108,9 +108,9 @@
 <!-- Start of Prices & Locations page ------------------------------------------------------------------>
 <div data-role="page" id="PricesLocations">
   <!--   page header -->
-  <div data-role="header" data-theme='a'>
+  <div data-role="header" data-theme='b'>
     <h1>Beer Prices & Locations</h1>
-    <div data-role="navbar" data-theme='b' id="nav_bar">
+    <div data-role="navbar" data-theme='a' id="nav_bar">
       <ul>
       <li><a href="/">Home Page</a></li>
       <li><a href="#BeerList">Beer List</a></li>
@@ -123,21 +123,20 @@
     <img class="center" id="image1" src="./images/beerFoam.jpg" alt="picture of foamy beer" class="center">
   </div>
   <!--   page content -->
-  <div data-role="content" data-theme='e'>
+  <div data-role="content" data-theme='a'>
 
     <form>
       <h2>Add a new location!</h2>
       Location:<br />
       <input type="text" value="" id="addLocation" />  
-      Price:<br />
+      Price ($):<br />
       <input type="text" value="" id="addPrice" >
       <input type="button" value="Add" id="buttonAddLocationsPrices" data-inline="true" />
       <br>
     </form>
 
-    <h3>Location:</h3>
+    <h3>Locations:</h3>
     <div id="divLocationList"></div>
-    <div id="Location"></div>
   </br>
 
   <button type="button" id="buttonDeleteLocationsPrices" data-status="delFalse">Delete a Listing</button>
@@ -160,9 +159,9 @@
 <div data-role="page" id="DescriptionsRatings">
 
   <!--   page header -->
-  <div data-role="header" data-theme='a'>
+  <div data-role="header" data-theme='b'>
     <h1>Beer Descriptions & Ratings</h1>
-    <div data-role="navbar" data-theme='b' id="nav_bar">
+    <div data-role="navbar" data-theme='a' id="nav_bar">
       <ul>
         <li><a href="/">Home Page</a></li>
         <li><a href="#BeerList">Beer List</a></li>
@@ -176,11 +175,11 @@
   </div>
 
   <!--  content -->
-  <div data-role="content" data-theme='c'>
+  <div data-role="content" data-theme='a'>
 
     <form>
-      <h2>Add a new rating from 1-5!</h2>
-      Rating:<br />
+      <h2>Add a new review!</h2>
+      Rating (1-5):<br />
       <input type="text" value="" id="addRating" />  
       Any comments?<br />
       <input type="text" value="" id="addDescription" >
@@ -188,9 +187,8 @@
       <br>
     </form>
 
-    <h3>Description:</h3>
+    <h3>Reviews:</h3>
     <div id="divReviewList"></div>
-    <div id="Description"></div>
     </br>
 
     <button type="button" id="buttonDeleteDescriptionsRatings" data-status="delFalse">Delete a Review</button>
@@ -213,3 +211,8 @@
 </body>
 
 </html>
+
+<!--       _
+       .__(.)< (MEOW)
+        \___)   
+ ~~~~~~~~~~~~~~~~~~-->
